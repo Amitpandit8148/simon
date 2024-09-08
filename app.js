@@ -1,5 +1,6 @@
 let gameSeq=[];
 let userSeq = [];
+let highestLevel = 0;
 
 let btns =["yellow", "red", "purple", "green"]
 
@@ -12,9 +13,8 @@ document.addEventListener("keypress", function(){
     if (started == false) {
         console.log("game is started");
         started = true;
-
-        levelUp();
     }
+    levelUp();
 });
 
 function gameFlash(btn) {
@@ -44,11 +44,11 @@ function levelUp() {
     // console.log(randBtn);
     gameSeq.push(randColor);
     console.log(gameSeq);
-    gameFlash();
+    gameFlash(randBtn);
 }
 
 function checkAns(idx) {
-    let idx = level - 1;
+    // let idx = level - 1;
 
     if (userSeq[idx] === gameSeq[idx]) {
         if (userSeq.length == gameSeq.length) {
